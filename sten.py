@@ -79,11 +79,14 @@ args = parser.parse_args()
 
 if (args.f != None) and (args.m != None):
     img = Image.open(args.f, 'r')
-    name, ext = str(args.f).split('.')
     txt = open(args.m)
     msg = str(txt.read())
-    nimg = encode(img, msg)
-    nimg.save(name + '-new.' + ext)
+    if len(img.getdata())/3 <= len(msg):
+        print('Text is too long for this picture.')
+    else:
+        name, ext = str(args.f).split('.')
+        nimg = encode(img, msg)
+        nimg.save(name + '-new.' + ext)
 
 elif (args.f != None):
     img = Image.open(str(args.f), 'r')

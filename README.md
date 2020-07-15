@@ -18,11 +18,9 @@ $ pip install Pillow
 To encode a pic.png with text.txt:
 ```
 python sten.py -f pic.png -m text.txt
-
 ```
 
 To decode pic-new.png:
 ```
 python sten.py -f pic-new.png
-
 ```
