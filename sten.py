@@ -87,11 +87,14 @@ if (args.f != None) and (args.m != None):
     else:
         name, ext = str(args.f).split('.')
         nimg = encode(img, msg)
-        nimg.save(name + '-new.' + ext)
+        #nimg.save(name + '-new.' + ext)
+        nimg.save(name + '.' + ext)
 
 elif (args.f != None):
     img = Image.open(str(args.f), 'r')
-    print(decode(img))
+    with open("out.txt", "w") as text_file:
+        text_file.write(decode(img))
+    #print(decode(img))
 
 else:
     parser.print_help()
